@@ -1,1 +1,2 @@
-# skeleton-wp
+Skeleton WordPress
+===================
