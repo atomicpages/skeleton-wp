@@ -44,7 +44,7 @@ if(!function_exists('skeleton_wp_setup')) {
 		 */
 		add_theme_support('title-tag');
 
-		// TODO: Add user generates thumbnail sizes
+		// TODO: Add user generated thumbnail sizes
 		add_theme_support('post-thumbnails');
 		set_post_thumbnail_size(150, 150, true);
 

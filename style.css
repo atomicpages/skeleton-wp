@@ -484,7 +484,7 @@ input[type="checkbox"] {
  * ------------------------------------------------ */
 .container {
   position: relative;
-  width: 98%;
+  width: 960px;
   margin: 0 auto;
   padding: 0; }
   .container .column,
@@ -990,5 +990,8 @@ object {
 
 .gallery-caption {
   display: block; }
+
+.copyright {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
