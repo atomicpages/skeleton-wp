@@ -88,15 +88,18 @@ add_action('after_setup_theme', 'skeleton_wp_setup');
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function skeleton_wp_widgets_init() {
-	register_sidebar(array(
-		'name'          => __('Sidebar', 'skeleton-wp'),
-		'id'            => 'sidebar-1',
+	$args = array(
+		'name'          => __('Sidebar %d'),
+		'id'            => 'sidebar',          
 		'description'   => '',
+		'class'         => 'sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	));
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>'
+	);
+	register_sidebars(2, $args);
+	// register_sidebars()
 }
 add_action('widgets_init', 'skeleton_wp_widgets_init');
 
