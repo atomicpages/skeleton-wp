@@ -484,7 +484,7 @@ input[type="checkbox"] {
  * ------------------------------------------------ */
 .container {
   position: relative;
-  width: 960px;
+  width: 98%;
   margin: 0 auto;
   padding: 0; }
   .container .column,
