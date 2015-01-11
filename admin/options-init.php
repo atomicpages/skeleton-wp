@@ -1,8 +1,8 @@
 <?php
 
 /**
-  ReduxFramework Sample Config File
-  For full documentation, please visit: https://docs.reduxframework.com
+ReduxFramework Sample Config File
+For full documentation, please visit: https://docs.reduxframework.com
  * */
 
 if (!class_exists('skeleton_wp_Redux_Framework_config')) {
@@ -68,8 +68,8 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 
         /**
 
-          This is a test function that will let you see when the compiler hook occurs.
-          It only runs if a field	set with compiler=>true is changed.
+        This is a test function that will let you see when the compiler hook occurs.
+        It only runs if a field	set with compiler=>true is changed.
 
          * */
         function compiler_action($options, $css) {
@@ -78,31 +78,31 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
             //print_r($css); // Compiler selector CSS values  compiler => array( CSS SELECTORS )
 
             /*
-              // Demo of how to use the dynamic CSS and write your own static CSS file
-              $filename = dirname(__FILE__) . '/style' . '.css';
-              global $wp_filesystem;
-              if( empty( $wp_filesystem ) ) {
-                require_once( ABSPATH .'/wp-admin/includes/file.php' );
-              WP_Filesystem();
-              }
+			  // Demo of how to use the dynamic CSS and write your own static CSS file
+			  $filename = dirname(__FILE__) . '/style' . '.css';
+			  global $wp_filesystem;
+			  if( empty( $wp_filesystem ) ) {
+				require_once( ABSPATH .'/wp-admin/includes/file.php' );
+			  WP_Filesystem();
+			  }
 
-              if( $wp_filesystem ) {
-                $wp_filesystem->put_contents(
-                    $filename,
-                    $css,
-                    FS_CHMOD_FILE // predefined mode settings for WP files
-                );
-              }
-             */
+			  if( $wp_filesystem ) {
+				$wp_filesystem->put_contents(
+					$filename,
+					$css,
+					FS_CHMOD_FILE // predefined mode settings for WP files
+				);
+			  }
+			 */
         }
 
         /**
 
-          Custom function for filtering the sections array. Good for child themes to override or add to the sections.
-          Simply include this function in the child themes functions.php file.
+        Custom function for filtering the sections array. Good for child themes to override or add to the sections.
+        Simply include this function in the child themes functions.php file.
 
-          NOTE: the defined constants for URLs, and directories will NOT be available at this point in a child theme,
-          so you must use get_template_directory_uri() if you want to use any of the built in icons
+        NOTE: the defined constants for URLs, and directories will NOT be available at this point in a child theme,
+        so you must use get_template_directory_uri() if you want to use any of the built in icons
 
          * */
         function dynamic_section($sections) {
@@ -120,7 +120,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 
         /**
 
-          Filter hook for filtering the args. Good for child themes to override or add to the args array. Can also be used in other functions.
+        Filter hook for filtering the args. Good for child themes to override or add to the args array. Can also be used in other functions.
 
          * */
         function change_arguments($args) {
@@ -131,7 +131,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 
         /**
 
-          Filter hook for filtering the default value of any given field. Very useful in development mode.
+        Filter hook for filtering the default value of any given field. Very useful in development mode.
 
          * */
         function change_defaults($defaults) {
@@ -155,7 +155,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
         public function setSections() {
 
             /**
-              Used within different fields. Simply examples. Search for ACTUAL DECLARATION for field examples
+            Used within different fields. Simply examples. Search for ACTUAL DECLARATION for field examples
              * */
             // Background Patterns Reader
             $sample_patterns_path   = ReduxFramework::$_dir . '../sample/patterns/';
@@ -191,12 +191,12 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 
             ?>
             <div id="current-theme" class="<?php echo esc_attr($class); ?>">
-            <?php if ($screenshot) : ?>
-                <?php if (current_user_can('edit_theme_options')) : ?>
+                <?php if ($screenshot) : ?>
+                    <?php if (current_user_can('edit_theme_options')) : ?>
                         <a href="<?php echo wp_customize_url(); ?>" class="load-customize hide-if-no-customize" title="<?php echo esc_attr($customize_title); ?>">
                             <img src="<?php echo esc_url($screenshot); ?>" alt="<?php esc_attr_e('Current theme preview'); ?>" />
                         </a>
-                <?php endif; ?>
+                    <?php endif; ?>
                     <img class="hide-if-customize" src="<?php echo esc_url($screenshot); ?>" alt="<?php esc_attr_e('Current theme preview'); ?>" />
                 <?php endif; ?>
 
@@ -209,11 +209,11 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         <li><?php echo '<strong>' . __('Tags', 'redux-framework-demo') . ':</strong> '; ?><?php printf($this->theme->display('Tags')); ?></li>
                     </ul>
                     <p class="theme-description"><?php echo $this->theme->display('Description'); ?></p>
-            <?php
-            if ($this->theme->parent()) {
-                printf(' <p class="howto">' . __('This <a href="%1$s">child theme</a> requires its parent theme, %2$s.') . '</p>', __('http://codex.wordpress.org/Child_Themes', 'redux-framework-demo'), $this->theme->parent()->display('Name'));
-            }
-            ?>
+                    <?php
+                    if ($this->theme->parent()) {
+                        printf(' <p class="howto">' . __('This <a href="%1$s">child theme</a> requires its parent theme, %2$s.') . '</p>', __('http://codex.wordpress.org/Child_Themes', 'redux-framework-demo'), $this->theme->parent()->display('Name'));
+                    }
+                    ?>
 
                 </div>
             </div>
@@ -767,10 +767,10 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'validate'  => 'email',
                         'msg'       => 'custom error message',
                         'default'   => 'test@test.com',
-//                        'text_hint' => array(
-//                            'title'     => 'Valid Email Required!',
-//                            'content'   => 'This field required a valid email address.'
-//                        )
+                        //                        'text_hint' => array(
+                        //                            'title'     => 'Valid Email Required!',
+                        //                            'content'   => 'This field required a valid email address.'
+                        //                        )
                     ),
                     array(
                         'id'        => 'opt-text-post-type',
@@ -796,10 +796,10 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
                         'validate'  => 'url',
                         'default'   => 'http://reduxframework.com',
-//                        'text_hint' => array(
-//                            'title'     => '',
-//                            'content'   => 'Please enter a valid <strong>URL</strong> in this field.'
-//                        )
+                        //                        'text_hint' => array(
+                        //                            'title'     => '',
+                        //                            'content'   => 'Please enter a valid <strong>URL</strong> in this field.'
+                        //                        )
                     ),
                     array(
                         'id'        => 'opt-text-numeric',
@@ -851,7 +851,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'preg'      => array(
                             'pattern'       => '/[^a-zA-Z_ -]/s',
                             'replacement'   => 'no numbers'
-                         ),
+                        ),
                         'default'   => '0'
                     ),
                     array(
@@ -959,7 +959,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
 
-                         //Must provide key => value pairs for radio options
+                        //Must provide key => value pairs for radio options
                         'options'   => array(
                             '1' => 'Opt 1',
                             '2' => 'Opt 2',
@@ -1456,8 +1456,8 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 
         /**
 
-          All the possible arguments for Redux.
-          For full documentation on arguments, please refer to: https://github.com/ReduxFramework/ReduxFramework/wiki/Arguments
+        All the possible arguments for Redux.
+        For full documentation on arguments, please refer to: https://github.com/ReduxFramework/ReduxFramework/wiki/Arguments
 
          * */
         public function setArguments() {
@@ -1469,44 +1469,43 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                 'page_slug' => '_options',
                 'page_title' => $theme->name . ' Options',
                 'update_notice' => true,
-                'intro_text' => '<p>This text is displayed above the options panel. It isn\\’t required, but more info is always better! The intro_text field accepts all HTML.</p>’',
-                'footer_text' => '<p>This text is displayed below the options panel. It isn\\’t required, but more info is always better! The footer_text field accepts all HTML.</p>',
+                'intro_text' => '<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>’',
+                'footer_text' => '<p>This text is displayed below the options panel. It is\'nt required, but more info
+			is always better! The footer_text field accepts all HTML.</p>',
                 'admin_bar' => true,
                 'menu_type' => 'menu',
-                'menu_title' => $theme->name . ' Options',
+                'menu_title' => 'Theme Options',
                 'allow_sub_menu' => true,
                 'page_parent_post_type' => 'your_post_type',
                 'customizer' => true,
                 'default_show' => true,
                 'default_mark' => '*',
                 'hints' =>
-                array(
-                  'icon' => 'el-icon-question-sign',
-                  'icon_position' => 'right',
-                  'icon_size' => 'normal',
-                  'tip_style' =>
-                  array(
-                    'color' => 'light',
-                  ),
-                  'tip_position' =>
-                  array(
-                    'my' => 'top left',
-                    'at' => 'bottom right',
-                  ),
-                  'tip_effect' =>
-                  array(
-                    'show' =>
                     array(
-                      'duration' => '500',
-                      'event' => 'mouseover',
+                        'icon' => 'el-icon-question-sign',
+                        'icon_position' => 'right',
+                        'icon_size' => 'normal',
+                        'tip_style' =>
+                            array('color' => 'light'),
+                        'tip_position' =>
+                            array(
+                                'my' => 'top left',
+                                'at' => 'bottom right',
+                            ),
+                        'tip_effect' =>
+                            array(
+                                'show' =>
+                                    array(
+                                        'duration' => '500',
+                                        'event' => 'mouseover',
+                                    ),
+                                'hide' =>
+                                    array(
+                                        'duration' => '500',
+                                        'event' => 'mouseleave unfocus',
+                                    ),
+                            ),
                     ),
-                    'hide' =>
-                    array(
-                      'duration' => '500',
-                      'event' => 'mouseleave unfocus',
-                    ),
-                  ),
-                ),
                 'output' => true,
                 'output_tag' => true,
                 'compiler' => true,
@@ -1517,13 +1516,13 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                 'transient_time' => '3600',
                 'network_sites' => true,
                 'async_typography' => true,
-              );
+            );
 
             $theme = wp_get_theme(); // For use with some settings. Not necessary.
             $this->args["display_name"] = $theme->get("Name");
             $this->args["display_version"] = $theme->get("Version");
 
-// SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
+            // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
             $this->args['share_icons'][] = array(
                 'url'   => 'https://github.com/ReduxFramework/ReduxFramework',
                 'title' => 'Visit us on GitHub',
@@ -1555,7 +1554,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 }
 
 /**
-  Custom function for the callback referenced above
+Custom function for the callback referenced above
  */
 if (!function_exists('skeleton_wp_my_custom_field')):
     function skeleton_wp_my_custom_field($field, $value) {
@@ -1566,7 +1565,7 @@ if (!function_exists('skeleton_wp_my_custom_field')):
 endif;
 
 /**
-  Custom function for the callback validation referenced above
+Custom function for the callback validation referenced above
  * */
 if (!function_exists('skeleton_wp_validate_callback_function')):
     function skeleton_wp_validate_callback_function($field, $value, $existing_value) {
@@ -1574,16 +1573,16 @@ if (!function_exists('skeleton_wp_validate_callback_function')):
         $value = 'just testing';
 
         /*
-          do your validation
+		  do your validation
 
-          if(something) {
-            $value = $value;
-          } elseif(something else) {
-            $error = true;
-            $value = $existing_value;
-            $field['msg'] = 'your custom error message';
-          }
-         */
+		  if(something) {
+			$value = $value;
+		  } elseif(something else) {
+			$error = true;
+			$value = $existing_value;
+			$field['msg'] = 'your custom error message';
+		  }
+		 */
 
         $return['value'] = $value;
         if ($error == true) {
