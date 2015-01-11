@@ -49,17 +49,17 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 
             // If Redux is running as a plugin, this will remove the demo notice and links
             add_action( 'redux/loaded', array( $this, 'remove_demo' ) );
-            
+
             // Function to test the compiler hook and demo CSS output.
             // Above 10 is a priority, but 2 in necessary to include the dynamically generated CSS to be sent to the function.
             //add_filter('redux/options/'.$this->args['opt_name'].'/compiler', array( $this, 'compiler_action' ), 10, 2);
-            
+
             // Change the arguments after they've been declared, but before the panel is created
             //add_filter('redux/options/'.$this->args['opt_name'].'/args', array( $this, 'change_arguments' ) );
-            
+
             // Change the default value of a field after it's been set, but before it's been useds
             //add_filter('redux/options/'.$this->args['opt_name'].'/defaults', array( $this,'change_defaults' ) );
-            
+
             // Dynamically add a section. Can be also used to modify sections/fields
             //add_filter('redux/options/' . $this->args['opt_name'] . '/sections', array($this, 'dynamic_section'));
 
@@ -188,7 +188,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
             $class          = $screenshot ? 'has-screenshot' : '';
 
             $customize_title = sprintf(__('Customize &#8220;%s&#8221;', 'redux-framework-demo'), $this->theme->display('Name'));
-            
+
             ?>
             <div id="current-theme" class="<?php echo esc_attr($class); ?>">
             <?php if ($screenshot) : ?>
@@ -433,7 +433,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                             'backup'    => 2,
                         ),
                     ),
-                    
+
                     array(
                         'id'        => 'opt-homepage-layout-2',
                         'type'      => 'sorter',
@@ -642,7 +642,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'subtitle'  => __('Only color validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
                         'default'   => array(
-                            'from'      => '#1e73be', 
+                            'from'      => '#1e73be',
                             'to'        => '#00897e'
                         )
                     ),
@@ -670,11 +670,11 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'output'    => array('.site-header'), // An array of CSS selectors to apply this font style to
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
                         'default'   => array(
-                            'border-color'  => '#1e73be', 
-                            'border-style'  => 'solid', 
-                            'border-top'    => '3px', 
-                            'border-right'  => '3px', 
-                            'border-bottom' => '3px', 
+                            'border-color'  => '#1e73be',
+                            'border-style'  => 'solid',
+                            'border-top'    => '3px',
+                            'border-right'  => '3px',
+                            'border-bottom' => '3px',
                             'border-left'   => '3px'
                         )
                     ),
@@ -695,9 +695,9 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'subtitle'      => __('Allow your users to choose the spacing or margin they want.', 'redux-framework-demo'),
                         'desc'          => __('You can enable or disable any piece of this field. Top, Right, Bottom, Left, or Units.', 'redux-framework-demo'),
                         'default'       => array(
-                            'margin-top'    => '1px', 
-                            'margin-right'  => '2px', 
-                            'margin-bottom' => '3px', 
+                            'margin-top'    => '1px',
+                            'margin-right'  => '2px',
+                            'margin-bottom' => '3px',
                             'margin-left'   => '4px'
                         )
                     ),
@@ -710,7 +710,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'subtitle'          => __('Allow your users to choose width, height, and/or unit.', 'redux-framework-demo'),
                         'desc'              => __('You can enable or disable any piece of this field. Width, Height, or Units.', 'redux-framework-demo'),
                         'default'           => array(
-                            'width'     => 200, 
+                            'width'     => 200,
                             'height'    => 100,
                         )
                     ),
@@ -836,7 +836,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'desc'      => __('This field\'s default value was changed by a filter hook!', 'redux-framework-demo'),
                         'validate'  => 'str_replace',
                         'str'       => array(
-                            'search'        => ' ', 
+                            'search'        => ' ',
                             'replacement'   => 'thisisaspace'
                         ),
                         'default'   => 'This is the default.'
@@ -849,7 +849,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
                         'validate'  => 'preg_replace',
                         'preg'      => array(
-                            'pattern'       => '/[^a-zA-Z_ -]/s', 
+                            'pattern'       => '/[^a-zA-Z_ -]/s',
                             'replacement'   => 'no numbers'
                          ),
                         'default'   => '0'
@@ -901,7 +901,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                     ),
                 )
             );
-            
+
             $this->sections[] = array(
                 'icon'      => 'el-icon-check',
                 'title'     => __('Radio/Checkbox Fields', 'redux-framework-demo'),
@@ -921,18 +921,18 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Multi Checkbox Option', 'redux-framework-demo'),
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-                        
+
                         //Must provide key => value pairs for multi checkbox options
                         'options'   => array(
-                            '1' => 'Opt 1', 
-                            '2' => 'Opt 2', 
+                            '1' => 'Opt 1',
+                            '2' => 'Opt 2',
                             '3' => 'Opt 3'
                         ),
-                        
+
                         //See how std has changed? you also don't need to specify opts that are 0.
                         'default'   => array(
-                            '1' => '1', 
-                            '2' => '0', 
+                            '1' => '1',
+                            '2' => '0',
                             '3' => '0'
                         )
                     ),
@@ -958,11 +958,11 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Radio Option', 'redux-framework-demo'),
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-                        
+
                          //Must provide key => value pairs for radio options
                         'options'   => array(
-                            '1' => 'Opt 1', 
-                            '2' => 'Opt 2', 
+                            '1' => 'Opt 1',
+                            '2' => 'Opt 2',
                             '3' => 'Opt 3'
                         ),
                         'default'   => '2'
@@ -981,14 +981,14 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Images Option', 'redux-framework-demo'),
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-                        
+
                         //Must provide key => value(array:title|img) pairs for radio options
                         'options'   => array(
                             '1' => array('title' => 'Opt 1', 'img' => 'images/align-none.png'),
                             '2' => array('title' => 'Opt 2', 'img' => 'images/align-left.png'),
                             '3' => array('title' => 'Opt 3', 'img' => 'images/align-center.png'),
                             '4' => array('title' => 'Opt 4', 'img' => 'images/align-right.png')
-                        ), 
+                        ),
                         'default'   => '2'
                     ),
                     array(
@@ -997,7 +997,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Images Option for Layout', 'redux-framework-demo'),
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This uses some of the built in images, you can use them for layout options.', 'redux-framework-demo'),
-                        
+
                         //Must provide key => value(array:title|img) pairs for radio options
                         'options'   => array(
                             '1' => array('alt' => '1 Column',        'img' => ReduxFramework::$_url . 'assets/img/1col.png'),
@@ -1006,7 +1006,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                             '4' => array('alt' => '3 Column Middle', 'img' => ReduxFramework::$_url . 'assets/img/3cm.png'),
                             '5' => array('alt' => '3 Column Left',   'img' => ReduxFramework::$_url . 'assets/img/3cl.png'),
                             '6' => array('alt' => '3 Column Right',  'img' => ReduxFramework::$_url . 'assets/img/3cr.png')
-                        ), 
+                        ),
                         'default' => '2'
                     ),
                     array(
@@ -1036,7 +1036,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                     ),
                 )
             );
-            
+
             $this->sections[] = array(
                 'icon'      => 'el-icon-list-alt',
                 'title'     => __('Select Fields', 'redux-framework-demo'),
@@ -1048,11 +1048,11 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Select Option', 'redux-framework-demo'),
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-                        
+
                         //Must provide key => value pairs for select options
                         'options'   => array(
-                            '1' => 'Opt 1', 
-                            '2' => 'Opt 2', 
+                            '1' => 'Opt 1',
+                            '2' => 'Opt 2',
                             '3' => 'Opt 3'
                         ),
                         'default'   => '2'
@@ -1064,13 +1064,13 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Multi Select Option', 'redux-framework-demo'),
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-                        
+
                         //Must provide key => value pairs for radio options
                         'options'   => array(
-                            '1' => 'Opt 1', 
-                            '2' => 'Opt 2', 
+                            '1' => 'Opt 1',
+                            '2' => 'Opt 2',
                             '3' => 'Opt 3'
-                        ), 
+                        ),
                         'required'  => array('select', 'equals', array('1', '3')),
                         'default'   => array('2', '3')
                     ),
@@ -1256,7 +1256,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                     ),
                 );
             }
-            
+
             // You can append a new section at any time.
             $this->sections[] = array(
                 'icon'      => 'el-icon-eye-open',
@@ -1280,13 +1280,13 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Button Set Option', 'redux-framework-demo'),
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-                        
+
                         //Must provide key => value pairs for radio options
                         'options'   => array(
-                            '1' => 'Opt 1', 
-                            '2' => 'Opt 2', 
+                            '1' => 'Opt 1',
+                            '2' => 'Opt 2',
                             '3' => 'Opt 3'
-                        ), 
+                        ),
                         'default'   => '2'
                     ),
                     array(
@@ -1296,13 +1296,13 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'subtitle'  => __('No validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
                         'multi'     => true,
-                        
+
                         //Must provide key => value pairs for radio options
                         'options'   => array(
-                            '1' => 'Opt 1', 
-                            '2' => 'Opt 2', 
+                            '1' => 'Opt 1',
+                            '2' => 'Opt 2',
                             '3' => 'Opt 3'
-                        ), 
+                        ),
                         'default'   => array('2', '3')
                     ),
                     array(
@@ -1407,8 +1407,8 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'full_width'    => false,
                     ),
                 ),
-            );                     
-                    
+            );
+
             $this->sections[] = array(
                 'type' => 'divide',
             );
@@ -1479,28 +1479,28 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                 'customizer' => true,
                 'default_show' => true,
                 'default_mark' => '*',
-                'hints' => 
+                'hints' =>
                 array(
                   'icon' => 'el-icon-question-sign',
                   'icon_position' => 'right',
                   'icon_size' => 'normal',
-                  'tip_style' => 
+                  'tip_style' =>
                   array(
                     'color' => 'light',
                   ),
-                  'tip_position' => 
+                  'tip_position' =>
                   array(
                     'my' => 'top left',
                     'at' => 'bottom right',
                   ),
-                  'tip_effect' => 
+                  'tip_effect' =>
                   array(
-                    'show' => 
+                    'show' =>
                     array(
                       'duration' => '500',
                       'event' => 'mouseover',
                     ),
-                    'hide' => 
+                    'hide' =>
                     array(
                       'duration' => '500',
                       'event' => 'mouseleave unfocus',
@@ -1549,7 +1549,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
         }
 
     }
-    
+
     global $reduxConfig;
     $reduxConfig = new skeleton_wp_Redux_Framework_config();
 }

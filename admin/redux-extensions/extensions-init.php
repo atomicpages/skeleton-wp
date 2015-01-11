@@ -2,7 +2,7 @@
 
 $redux_opt_name = "skeleton_wp";
 
-// Place any extra hooks/configs in here for extensions and 
+// Place any extra hooks/configs in here for extensions and
 // place the actual extension within the /extensions dir
 
 

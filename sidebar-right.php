@@ -5,11 +5,11 @@
  * @package Skeleton WordPress
  */
 
-// if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-// 	return;
-// }
+if ( ! is_active_sidebar( 'sidebar-2' ) ) {
+	return;
+}
 ?>
 
-<div class="sidebar widget-area" role="complementary">
+<div class="sidebar widget-area sidebar-right" role="complementary">
 	<?php dynamic_sidebar('sidebar-2'); ?>
 </div><!-- #secondary -->

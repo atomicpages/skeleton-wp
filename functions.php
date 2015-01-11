@@ -5,6 +5,7 @@
  * @package Skeleton WordPress
  */
 
+define("ASSETS_DIR", get_template_directory() . "/assets");
 
 // Add Redux Framework & extras
 require get_template_directory() . '/admin/admin-init.php';
@@ -57,6 +58,7 @@ if(!function_exists('skeleton_wp_setup')) {
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(array(
 			'primary' => __('Primary Menu', 'skeleton-wp'),
+			'secondary' => __("Secondary Menu", "skeleton-wp")
 		));
 
 		/*
@@ -90,27 +92,41 @@ add_action('after_setup_theme', 'skeleton_wp_setup');
 function skeleton_wp_widgets_init() {
 	$args = array(
 		'name'          => __('Sidebar %d'),
-		'id'            => 'sidebar',          
-		'description'   => '',
+		'id'            => 'sidebar',
+		'description'   => 'Sidebars only visible when active and appropriate content layout is active',
 		'class'         => 'sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>'
+		'before_title'  => '<p class="widget-title sidebar-widget-title">',
+		'after_title'   => '</p>'
 	);
 	register_sidebars(2, $args);
-	// register_sidebars()
+
 }
 add_action('widgets_init', 'skeleton_wp_widgets_init');
+
+function skeleton_wp_footer_wigets_init() {
+	$args = array(
+		'name'          => __('Footer Region %d'),
+		'id'            => 'footer-region',
+		'description'   => 'Use up to four footer regions for your custom footer!',
+		'class'         => 'footer-region',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<p class="widget-title footer-widget-title">',
+		'after_title'   => '</p>'
+	);
+	register_sidebars(4, $args);
+}
+add_action('widgets_init', 'skeleton_wp_footer_wigets_init');
 
 /**
  * Enqueue scripts and styles.
  */
 function skeleton_wp_scripts() {
+	// if use theme fancybox is enabled, load the scripts here...
 	wp_enqueue_style('skeleton-wp-style', get_stylesheet_uri());
-
 	wp_enqueue_script('skeleton-wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true);
-
 	wp_enqueue_script('skeleton-wp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true);
 
 	if(is_singular() && comments_open() && get_option('thread_comments')) {
@@ -118,6 +134,12 @@ function skeleton_wp_scripts() {
 	}
 }
 add_action('wp_enqueue_scripts', 'skeleton_wp_scripts');
+
+function skeleton_wp_styles() {
+	// enqueue custom styles here...
+	// if use theme fancybox is enabled, load the styles here...
+}
+add_action("wp_enqueue_style", "skeleton_wp_styles");
 
 /**
  * Implement the Custom Header feature.
