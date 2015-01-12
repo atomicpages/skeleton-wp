@@ -171,6 +171,27 @@ function skeleton_wp_styles() {
 	// TODO: If fancybox is enabled, load styles here
 }
 
+
+add_action("wp_enqueue_style", "skeleton_wp_styles");
+
+function skeleton_wp_footer_regions() {
+	//footer regions
+	$active_sidebars = 0;
+	for($i = 1; $i < 5; $i++) {
+		if(is_dynamic_sidebar("footer-region" . $i)) {
+			// do something
+			$active_sidebars++;
+		}
+	}
+
+}
+
+//require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Implement the Custom Header feature.
+ */
+
 add_action('widgets_init', 'skeleton_wp_widgets_init');
 add_action('widgets_init', 'skeleton_wp_footer_wigets_init');
 add_action('after_setup_theme', 'skeleton_wp_setup');
