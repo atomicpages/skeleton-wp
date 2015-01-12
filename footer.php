@@ -14,7 +14,7 @@
 <div class="wrapper footer">
 	<footer class="container footer" role="contentinfo">
 		<div class="sixteen columns inner-footer">
-
+			<?php skeleton_wp_get_footer_regions() ?>
 		</div><!-- /.sixteen.columns.inner-footer -->
 		<div class="sixteen columns copyright">
 			<!-- TODO: if copyright not set in admin options, show the default copyright -->

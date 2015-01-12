@@ -6,34 +6,16 @@
  */
 
 define("ASSETS_DIR", get_template_directory() . "/assets");
+define("NUMBER_OF_FOOTER_REGIONS", 4);
 
 // Add Redux Framework & extras
 require get_template_directory() . '/admin/admin-init.php';
-
-/**
- * Implement the Custom Header feature.
- */
 // require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
 require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
 require get_template_directory() . '/inc/jetpack.php';
+require get_template_directory() . '/assets/functions/functions-workers.php';
 
 // Set the content width based on the theme's design and stylesheet
 if(!isset($content_width)) {
@@ -106,7 +88,7 @@ if(!function_exists('skeleton_wp_setup')) {
 			))
 		);
 	}
-} // skeleton_wp_setup
+}
 
 /**
  * Register widget area.
@@ -139,7 +121,7 @@ function skeleton_wp_footer_wigets_init() {
 		'before_title'  => '<p class="widget-title footer-widget-title">',
 		'after_title'   => '</p>'
 	);
-	register_sidebars(4, $args);
+	register_sidebars(NUMBER_OF_FOOTER_REGIONS, $args);
 }
 
 /**
@@ -156,41 +138,43 @@ function skeleton_wp_scripts() {
 	}
 }
 
-function skeleton_wp_footer_regions() {
-	$active_sidebars = 0;
-	for($i = 1; $i < 5; $i++) {
-		if(is_dynamic_sidebar("footer-region" . $i)) {
-			// do something
-			$active_sidebars++;
-		}
-	}
-}
-
 function skeleton_wp_styles() {
 	// enqueue custom styles here...
 	// TODO: If fancybox is enabled, load styles here
 }
 
+/**
+ * Generates the footer regions and displays them with the appropriate HTML
+ * @return bool
+ * @uses skeleton_wp_count_active_sidebars()
+ * @see assets/functions/functions-workers.php
+ * @author Dennis Thompson
+ */
+function skeleton_wp_get_footer_regions() {
+	$active_regions = skeleton_wp_count_active_sidebars(NUMBER_OF_FOOTER_REGIONS);
+	$columns = 16 / count($active_regions); // FIXME: causing a division by zero warning
+	// FIXME: There should be better error handling here. We need to let the user know what happened
+	if($columns > 1) return false; // we have a problem that we can't recover from
+	$column_map = array(
+		16 => "sixteen",
+		8 => "eight",
+		5 => "five",
+		4 => "four"
+	);
 
-add_action("wp_enqueue_style", "skeleton_wp_styles");
-
-function skeleton_wp_footer_regions() {
-	//footer regions
-	$active_sidebars = 0;
-	for($i = 1; $i < 5; $i++) {
-		if(is_dynamic_sidebar("footer-region" . $i)) {
-			// do something
-			$active_sidebars++;
+	for($i = 0; $i < count($active_regions); $i++) {
+		$classes = array($column_map[$columns]);
+		if(count($active_regions) == 1) {
+			array_push($classes, "alpha", "omega");
+		} elseif($i == 0) {
+			array_push($classes, "alpha");
+		} elseif($i == count($active_regions)) {
+			array_push($classes, "omega");
 		}
+		print '<div class="' . implode(" ", $classes) . '">' . dynamic_sidebar("footer-region-" . $active_regions[$i]) . '</div>';
 	}
 
 }
-
-//require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Implement the Custom Header feature.
- */
 
 add_action('widgets_init', 'skeleton_wp_widgets_init');
 add_action('widgets_init', 'skeleton_wp_footer_wigets_init');
