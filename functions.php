@@ -141,6 +141,18 @@ function skeleton_wp_styles() {
 }
 add_action("wp_enqueue_style", "skeleton_wp_styles");
 
+function skeleton_wp_footer_regions() {
+	//footer regions
+	$active_sidebars = 0;
+	for($i = 1; $i < 5; $i++) {
+		if(is_dynamic_sidebar("footer-region" . $i)) {
+			// do something
+			$active_sidebars++;
+		}
+	}
+
+}
+
 /**
  * Implement the Custom Header feature.
  */
