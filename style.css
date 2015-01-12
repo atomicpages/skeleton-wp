@@ -51,9 +51,10 @@ ol, ul {
 
 blockquote, q {
   quotes: none; }
-  blockquote:before, blockquote:after, q:before, q:after {
-    content: "";
-    content: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none; }
 
 table {
   border-collapse: collapse;
@@ -91,7 +92,7 @@ body {
 /* TYPOGRAPHY
  * ------------------------------------------------ */
 h1, h2, h3, h4, h5, h6 {
-  color: #181818;
+  color: #222;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal; }
 
@@ -192,62 +193,90 @@ hr {
 /* LINKS
  * ------------------------------------------------ */
 a, a:visited {
-  color: #222;
+  color: #1EAEDB;
   text-decoration: underline;
   outline: 0; }
 
 a:hover, a:focus, a:active {
-  color: #000; }
+  color: #0FA0CE; }
 
 p a, p a:visited {
   line-height: inherit; }
 
 /* LISTS
  * ------------------------------------------------ */
-ul,
-ol {
-  margin-bottom: 2rem; }
-
 ul {
-  list-style: none outside; }
+  list-style: circle inside; }
 
 ol {
-  list-style: decimal; }
+  list-style: decimal inside; }
 
-ol, ul.square,
-ul.circle, ul.disc {
-  margin-left: 3rem; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
 
-ul.square {
-  list-style: square outside; }
-
-ul.circle {
-  list-style: circle outside; }
-
-ul.disc {
-  list-style: disc outside; }
-
-ul ul, ul ol,
-ol ol, ol ul {
-  margin-top: 0.4rem;
-  margin-right: 0;
-  margin-bottom: 0.5rem;
-  margin-left: 3rem;
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
   font-size: 90%; }
 
-ul ul li, ul ol li,
-ol ol li, ol ul li {
-  margin-bottom: 0.6rem; }
-
 li {
-  line-height: 1.8rem;
-  margin-bottom: 1.2rem; }
+  margin-bottom: 1rem; }
 
-ul.large li {
-  line-height: 2.1rem; }
+/* CODE
+ * ------------------------------------------------ */
+code {
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px; }
 
-li p {
-  line-height: 2.1rem; }
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre; }
+
+/* TABLES
+* ------------------------------------------------ */
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+  th:first-child,
+  td:first-child {
+    padding-left: 0; }
+  th:last-child,
+  td:last-child {
+    padding-right: 0; }
+
+/* SPACING
+* ------------------------------------------------ */
+button,
+.button {
+  margin-bottom: 1rem; }
+
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 2.5rem; }
 
 /* IMAGES
  * ------------------------------------------------ */
@@ -265,12 +294,10 @@ input[type="button"] {
   border: 1px solid #aaa;
   border-top: 1px solid #ccc;
   border-left: 1px solid #ccc;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
   border-radius: 3px;
-  color: #444;
+  color: #555;
+  text-align: center;
+  font-size: 1.1rem;
   display: inline-block;
   font-weight: bold;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -279,38 +306,36 @@ input[type="button"] {
   text-decoration: none;
   cursor: pointer;
   line-height: normal;
-  padding: 0.8rem 1rem;
-  background: #eeeeee -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(0, 0, 0, 0.2)));
-  background: #eeeeee -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
-  background: #eeeeee -moz-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
-  background: #eeeeee -o-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
-  background: #eeeeee linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
-  text-shadow: 0 1px rgba(255, 255, 255, 0.75); }
-  .button:hover,
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 3rem;
+  background-color: transparent; }
+  .button:hover, .button:active, .button:focus,
   button:hover,
-  input[type="submit"]:hover,
-  input[type="reset"]:hover,
-  input[type="button"]:hover {
-    color: #222;
-    border: 1px solid #888;
-    border-top: 1px solid #aaa;
-    border-left: 1px solid #aaa;
-    background: #dddddd -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(0, 0, 0, 0.3)));
-    background: #dddddd -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
-    background: #dddddd -moz-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
-    background: #dddddd -o-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
-    background: #dddddd linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%); }
-  .button:active,
   button:active,
+  button:focus,
+  input[type="submit"]:hover,
   input[type="submit"]:active,
+  input[type="submit"]:focus,
+  input[type="reset"]:hover,
   input[type="reset"]:active,
-  input[type="button"]:active {
-    border: 1px solid #666;
-    background: #cccccc -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.35)), color-stop(100%, rgba(10, 10, 10, 0.4)));
-    background: #cccccc -webkit-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%);
-    background: #cccccc -moz-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%);
-    background: #cccccc -o-linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%);
-    background: #cccccc linear-gradient(top, rgba(255, 255, 255, 0.35) 0%, rgba(10, 10, 10, 0.4) 100%); }
+  input[type="reset"]:focus,
+  input[type="button"]:hover,
+  input[type="button"]:active,
+  input[type="button"]:focus {
+    color: #333;
+    border-color: #888;
+    outline: 0 none; }
   .button.full-width,
   button.full-width,
   input[type="submit"].full-width,
@@ -320,22 +345,30 @@ input[type="button"] {
     padding-left: 0 !important;
     padding-right: 0 !important;
     text-align: center; }
-  .button.smaller,
-  button.smaller,
-  input[type="submit"].smaller,
-  input[type="reset"].smaller,
-  input[type="button"].smaller {
-    font-size: 12px;
-    font-size: 1.2rem;
-    padding: 0.4rem 0.5rem; }
-  .button.larger,
-  button.larger,
-  input[type="submit"].larger,
-  input[type="reset"].larger,
-  input[type="button"].larger {
-    font-size: 16px;
-    font-size: 1.6rem;
-    padding: 1rem 1.8rem; }
+  .button.button-primary,
+  button.button-primary,
+  input[type="submit"].button-primary,
+  input[type="reset"].button-primary,
+  input[type="button"].button-primary {
+    color: #fff;
+    background-color: #33C3F0;
+    border-color: #33C3F0; }
+    .button.button-primary:hover, .button.button-primary:active, .button.button-primary:focus,
+    button.button-primary:hover,
+    button.button-primary:active,
+    button.button-primary:focus,
+    input[type="submit"].button-primary:hover,
+    input[type="submit"].button-primary:active,
+    input[type="submit"].button-primary:focus,
+    input[type="reset"].button-primary:hover,
+    input[type="reset"].button-primary:active,
+    input[type="reset"].button-primary:focus,
+    input[type="button"].button-primary:hover,
+    input[type="button"].button-primary:active,
+    input[type="button"].button-primary:focus {
+      color: #fff;
+      background-color: #1EAEDB;
+      border-color: #1EAEDB; }
 
 /* Fix for odd Mozilla border & padding issues */
 button::-moz-focus-inner,
@@ -367,22 +400,24 @@ input[type="number"],
 textarea,
 select {
   background: #fff;
-  border: 1px solid #ccc;
-  padding: 0.6rem 0.4rem;
-  outline: none;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  border: 1px solid #D1D1D1;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-size: 1.5rem;
-  color: #777;
-  margin: 0 0 2rem;
-  width: 21rem;
   max-width: 100%;
-  display: block; }
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  /* Removed awkward styling from default devices */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
   input[type="text"]:hover, input[type="text"]:focus,
   input[type="password"]:hover,
   input[type="password"]:focus,
@@ -412,34 +447,8 @@ select {
   textarea:focus,
   select:hover,
   select:focus {
-    border: 1px solid #aaa;
-    color: #444;
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    -ms-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); }
-  input[type="text"]:active,
-  input[type="password"]:active,
-  input[type="email"]:active,
-  input[type="search"]:active,
-  input[type="url"]:active,
-  input[type="tel"]:active,
-  input[type="date"]:active,
-  input[type="datetime"]:active,
-  input[type="datetime-local"]:active,
-  input[type="month"]:active,
-  input[type="week"]:active,
-  input[type="time"]:active,
-  input[type="number"]:active,
-  textarea:active,
-  select:active {
-    border: 1px solid #909090;
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    -ms-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }
+    outline: 0 none;
+    border: 1px solid #33C3F0; }
 
 select {
   padding: 0; }
@@ -453,18 +462,19 @@ legend {
   font-weight: bold;
   font-size: 15px;
   font-size: 1.5rem; }
-  label span,
-  legend span {
-    font-weight: normal;
-    font-size: 15px;
-    font-size: 1.5rem;
-    color: #444; }
 
 select {
   width: 22rem; }
 
 input[type="checkbox"] {
   display: inline; }
+
+label span,
+legend span {
+  font-weight: normal;
+  font-size: 15px;
+  font-size: 1.5rem;
+  color: #444; }
 
 /* MISC
  * ------------------------------------------------ */
@@ -693,6 +703,9 @@ input[type="checkbox"] {
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
   /* add code here */ }
+code, kbd, pre {
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace; }
+
 /*--------------------------------------------------------------
 5.0 Navigation
 --------------------------------------------------------------*/

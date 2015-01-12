@@ -1396,7 +1396,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 
             $this->sections[] = array(
                 'title'     => __('Import / Export', 'redux-framework-demo'),
-                'desc'      => __('Import and Export your Redux Framework settings from file, text or URL.', 'redux-framework-demo'),
+                'desc'      => __("Import and Export your Redux Framework settings from file, text or URL.", 'redux-framework-demo'),
                 'icon'      => 'el-icon-refresh',
                 'fields'    => array(
                     array(
@@ -1469,9 +1469,8 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                 'page_slug' => '_options',
                 'page_title' => $theme->name . ' Options',
                 'update_notice' => true,
-                'intro_text' => '<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>’',
-                'footer_text' => '<p>This text is displayed below the options panel. It is\'nt required, but more info
-			is always better! The footer_text field accepts all HTML.</p>',
+                'intro_text' => '<p>Welcome to ' . $theme->name . ' administrative interface!</p>',
+                'footer_text' => '<p>&copy; ' . date("Y") . ' AtomicPages LLC</p>',
                 'admin_bar' => true,
                 'menu_type' => 'menu',
                 'menu_title' => 'Theme Options',

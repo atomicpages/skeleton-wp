@@ -10,9 +10,34 @@ define("ASSETS_DIR", get_template_directory() . "/assets");
 // Add Redux Framework & extras
 require get_template_directory() . '/admin/admin-init.php';
 
+/**
+ * Implement the Custom Header feature.
+ */
+// require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load Jetpack compatibility file.
+ */
+require get_template_directory() . '/inc/jetpack.php';
+
 // Set the content width based on the theme's design and stylesheet
 if(!isset($content_width)) {
-	$content_width = 960; /* pixels */
+	$content_width = 960; // in pixels
 }
 
 if(!function_exists('skeleton_wp_setup')) {
@@ -82,7 +107,6 @@ if(!function_exists('skeleton_wp_setup')) {
 		);
 	}
 } // skeleton_wp_setup
-add_action('after_setup_theme', 'skeleton_wp_setup');
 
 /**
  * Register widget area.
@@ -103,7 +127,6 @@ function skeleton_wp_widgets_init() {
 	register_sidebars(2, $args);
 
 }
-add_action('widgets_init', 'skeleton_wp_widgets_init');
 
 function skeleton_wp_footer_wigets_init() {
 	$args = array(
@@ -118,7 +141,6 @@ function skeleton_wp_footer_wigets_init() {
 	);
 	register_sidebars(4, $args);
 }
-add_action('widgets_init', 'skeleton_wp_footer_wigets_init');
 
 /**
  * Enqueue scripts and styles.
@@ -133,35 +155,24 @@ function skeleton_wp_scripts() {
 		wp_enqueue_script('comment-reply');
 	}
 }
-add_action('wp_enqueue_scripts', 'skeleton_wp_scripts');
+
+function skeleton_wp_footer_regions() {
+	$active_sidebars = 0;
+	for($i = 1; $i < 5; $i++) {
+		if(is_dynamic_sidebar("footer-region" . $i)) {
+			// do something
+			$active_sidebars++;
+		}
+	}
+}
 
 function skeleton_wp_styles() {
 	// enqueue custom styles here...
 	// TODO: If fancybox is enabled, load styles here
 }
+
+add_action('widgets_init', 'skeleton_wp_widgets_init');
+add_action('widgets_init', 'skeleton_wp_footer_wigets_init');
+add_action('after_setup_theme', 'skeleton_wp_setup');
+add_action('wp_enqueue_scripts', 'skeleton_wp_scripts');
 add_action("wp_enqueue_style", "skeleton_wp_styles");
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
