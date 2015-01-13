@@ -19,6 +19,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/functions/functions-workers.php';
 require get_template_directory() . '/inc/functions/functions-options.php';
+require get_template_directory() . '/inc/shortcodes/shortcodes-core.php';
 
 // Set the content width based on the theme's design and stylesheet
 if(!isset($content_width)) {

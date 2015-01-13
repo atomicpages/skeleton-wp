@@ -17,13 +17,12 @@
 			<?php skeleton_wp_get_footer_regions() ?>
 		</div><!-- /.sixteen.columns.inner-footer -->
 		<div class="sixteen columns copyright">
-			<!-- TODO: if copyright not set in admin options, show the default copyright -->
-			<p class="copyright">&copy; <?php print date("Y"); ?> <?php bloginfo("name") ?></p>
+			<?php if($copyright = skeleton_wp_get_option("skeleton_wp_copyright")) : ?>
+				<p class="copyright"><?php print do_shortcode($copyright) ?></p>
+			<?php endif; ?>
 		</div><!-- /.sixteen.columns.copyright -->
 	</footer><!-- /.container.footer -->
 </div><!-- /.wrapper.footer -->
 <?php wp_footer(); ?>
 </body>
 </html>
-<?php
-var_dump(skeleton_wp_option_isset('opt-web-fonts'));

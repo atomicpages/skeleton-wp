@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @package Skeleton WordPress
+ */
+
+/**
  * A functions that is used to get the number of active footer regions
  * @param int $regions
  * @param string $id = "footer-regions-"
