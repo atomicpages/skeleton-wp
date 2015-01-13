@@ -16,3 +16,9 @@ function skeleton_wp_option_isset($option) {
 	if(array_key_exists($option, $skeleton_wp) && isset($skeleton_wp[$option])) return true;
 	return false;
 }
+
+function skeleton_wp_get_option($id) {
+	global $skeleton_wp;
+	if(skeleton_wp_option_isset($id)) return $skeleton_wp[$id];
+	return null;
+}

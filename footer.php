@@ -25,3 +25,5 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+<?php
+var_dump(skeleton_wp_option_isset('opt-web-fonts'));
