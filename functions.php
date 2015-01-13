@@ -5,7 +5,9 @@
  * @package Skeleton WordPress
  */
 
-define("ASSETS_DIR", get_template_directory() . "/assets");
+// /usr/lib/php/extensions/no-debug-non-zts-20121212 => /usr/lib/php/extensions/no-debug-non-zts-20121212
+
+define("ASSETS_DIR", get_template_directory() . "/assets/");
 define("NUMBER_OF_FOOTER_REGIONS", 4);
 
 // Add Redux Framework & extras
@@ -15,7 +17,7 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
-require get_template_directory() . '/assets/functions/functions-workers.php';
+require ASSETS_DIR . 'functions/function-workers.php';
 
 // Set the content width based on the theme's design and stylesheet
 if(!isset($content_width)) {
@@ -147,7 +149,7 @@ function skeleton_wp_styles() {
  * Generates the footer regions and displays them with the appropriate HTML
  * @return bool
  * @uses skeleton_wp_count_active_sidebars()
- * @see assets/functions/functions-workers.php
+ * @see assets/functions/function-workers.php
  * @author Dennis Thompson
  */
 function skeleton_wp_get_footer_regions() {
