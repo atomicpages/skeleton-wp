@@ -17,7 +17,8 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
-require ASSETS_DIR . 'functions/function-workers.php';
+require get_template_directory() . '/inc/functions/functions-workers.php';
+require get_template_directory() . '/inc/functions/functions-options.php';
 
 // Set the content width based on the theme's design and stylesheet
 if(!isset($content_width)) {
@@ -149,7 +150,7 @@ function skeleton_wp_styles() {
  * Generates the footer regions and displays them with the appropriate HTML
  * @return bool
  * @uses skeleton_wp_count_active_sidebars()
- * @see assets/functions/function-workers.php
+ * @see assets/functions/functions-workers.php
  * @author Dennis Thompson
  */
 function skeleton_wp_get_footer_regions() {
