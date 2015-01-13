@@ -245,6 +245,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                     array(
                         'id'        => 'opt-web-fonts',
                         'type'      => 'media',
+	                    'field'     => 'copyright',
                         'title'     => __('Web Fonts', 'redux-framework-demo'),
                         'compiler'  => 'true',
                         'mode'      => false, // Can be set to false to allow any media type, or can also be set to any mime type.
