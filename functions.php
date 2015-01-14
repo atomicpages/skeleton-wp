@@ -1,7 +1,6 @@
 <?php
 /**
  * Skeleton WordPress functions and definitions
- *
  * @package Skeleton WordPress
  */
 
@@ -156,9 +155,12 @@ function skeleton_wp_styles() {
  */
 function skeleton_wp_get_footer_regions() {
 	$active_regions = skeleton_wp_count_active_sidebars(NUMBER_OF_FOOTER_REGIONS);
-	$columns = 16 / count($active_regions); // FIXME: causing a division by zero warning
-	// FIXME: There should be better error handling here. We need to let the user know what happened
-	if($columns > 1) return false; // we have a problem that we can't recover from
+	if(count($active_regions) == 0) { // no sidebars are active
+		return false;
+	}
+
+	$columns = 16 / count($active_regions);
+
 	$column_map = array(
 		16 => "sixteen",
 		8 => "eight",
@@ -167,15 +169,17 @@ function skeleton_wp_get_footer_regions() {
 	);
 
 	for($i = 0; $i < count($active_regions); $i++) {
-		$classes = array($column_map[$columns]);
+		$classes = array($column_map[$columns], "columns");
 		if(count($active_regions) == 1) {
 			array_push($classes, "alpha", "omega");
 		} elseif($i == 0) {
 			array_push($classes, "alpha");
-		} elseif($i == count($active_regions)) {
+		} elseif($i == count($active_regions) - 1) {
 			array_push($classes, "omega");
 		}
-		print '<div class="' . implode(" ", $classes) . '">' . dynamic_sidebar("footer-region-" . $active_regions[$i]) . '</div>';
+		print '<div class="' . implode(" ", $classes) . '">';
+		dynamic_sidebar("footer-region-" . $active_regions[$i]);
+		print '</div>';
 	}
 
 }

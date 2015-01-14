@@ -23,41 +23,58 @@ function skeleton_wp_sc_site_title() {
 /**
  * Returns the URL to WordPress site
  * @return string|void
+ * @version 1.0
+ * @since 1.0
  */
 function skeleton_wp_sc_site_url() {
 	return get_bloginfo("url");
 }
 
 /**
+ * Returns the URL of the WordPress site
  * @return string|void
+ * @version 1.0
+ * @since 1.0
  */
 function skeleton_wp_sc_wp_url() {
 	return get_bloginfo("wpurl");
 }
 
 /**
+ * Returns the template URL
  * @return string|void
+ * @version 1.0
+ * @since 1.0
  */
 function skeleton_wp_sc_theme_url() {
 	return get_bloginfo("template_url");
 }
 
 /**
+ * Returns the login URL
  * @return string
+ * @version 1.0
+ * @since 1.0
  */
 function skeleton_wp_sc_login_url() {
 	return wp_login_url();
 }
 
 /**
+ * Returns the logout URL
  * @return string
+ * @version 1.0
+ * @since 1.0
  */
 function skeleton_wp_sc_logout_url() {
 	return wp_logout_url();
 }
 
 /**
+ * Returns the site tagline
  * @return string|void
+ * @version 1.0
+ * @since 1.0
  */
 function skeleton_wp_sc_site_tagline() {
 	return get_bloginfo("description");

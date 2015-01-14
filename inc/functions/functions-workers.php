@@ -12,10 +12,15 @@
  * @author Dennis Thompson
  * @version 1.0
  */
-function skeleton_wp_count_active_sidebars($regions, $id = "footer-region-") {
+function skeleton_wp_count_active_sidebars($regions, $id = "footer-region") {
 	$active = array();
 	for($i = 1; $i <= $regions; $i++) {
-		if(is_active_sidebar($id . $i)) {
+		$footer_id = $id . "-" . $i;
+		if($i == 1) { // FIXME: Sloppy, see if there's a better way...
+			$footer_id = $id;
+		}
+
+		if(is_active_sidebar($footer_id)) {
 			$active[] = $i;
 		}
 	}

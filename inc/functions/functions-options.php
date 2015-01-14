@@ -27,9 +27,9 @@ function skeleton_wp_option_isset($option) {
 }
 
 /**
- *
+ * Returns the value stored in the admin area
  * @param string $id
- * @return mixed | null on failure
+ * @return mixed|null
  * @version 1.0
  * @since 1.0
  */
