@@ -1,9 +1,7 @@
 <?php
 /**
  * The header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="content">
- *
+ * Displays all of the <head> section and everything up till <div class="wrapper main">
  * @package Skeleton WordPress
  */
 ?>
@@ -17,6 +15,13 @@
 <?php wp_head(); ?>
 <!-- TEMPORARY -->
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,100' rel='stylesheet' type='text/css'>
+<?php if(skeleton_wp_option_isset("skeleton_wp_custom_css")) : ?>
+<!-- begin custom css -->
+<style type="text/css">
+<?php print skeleton_wp_option_unsafe("skeleton_wp_custom_css") ?>
+</style>
+<!-- end custom css -->
+<?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>>

@@ -305,7 +305,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'type'      => 'select',
                         'title'     => __('Theme Stylesheet', 'redux-framework-demo'),
                         'subtitle'  => __('Select your themes alternative color scheme.', 'redux-framework-demo'),
-                        'options'   => array('fresh.css' => 'fresh.css'),
+                        'options'   => array('fresh.css' => 'fresh.css', "blank.css" => "blank.css"),
                         'default'   => 'fresh.css',
                     ),
                     array(

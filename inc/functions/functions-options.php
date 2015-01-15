@@ -41,3 +41,13 @@ function skeleton_wp_get_option($id) {
 
 	return null;
 }
+
+/**
+ * Returns the value stored in the admin area without checking if the key exists!
+ * @param $id
+ * @return mixed|null
+ */
+function skeleton_wp_option_unsafe($id) {
+	global $skeleton_wp;
+	return $skeleton_wp[$id];
+}

@@ -177,6 +177,8 @@ function skeleton_wp_get_footer_regions() {
 		} elseif($i == count($active_regions) - 1) {
 			array_push($classes, "omega");
 		}
+
+		// TODO: See if there's a more optimal to store class selectors. Is implode() too slow?
 		print '<div class="' . implode(" ", $classes) . '">';
 		dynamic_sidebar("footer-region-" . $active_regions[$i]);
 		print '</div>';

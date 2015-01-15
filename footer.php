@@ -24,5 +24,19 @@
 		</footer><!-- /.container.footer -->
 	</div><!-- /.wrapper.footer -->
 	<?php wp_footer(); ?>
+	<?php if(skeleton_wp_option_isset("skeleton_wp_tracking_code")) : ?>
+	<!-- begin tracking code -->
+	<script type="text/javascript">
+	<?php print skeleton_wp_option_unsafe("skeleton_wp_tracking_code") ?>
+	</script>
+	<!-- end tracking code -->
+	<?php endif; ?>
+	<?php if(skeleton_wp_option_isset("skeleton_wp_tracking_code")) : ?>
+	<!-- begin custom js -->
+	<script type="text/javascript">
+	<?php print skeleton_wp_option_unsafe("skeleton_wp_custom_js") ?>
+	</script>
+	<!-- end custom js -->
+	<?php endif; ?>
 </body>
 </html>
