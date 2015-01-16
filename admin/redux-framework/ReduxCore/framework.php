@@ -70,7 +70,7 @@
             // ATTENTION DEVS
             // Please update the build number with each push, no matter how small.
             // This will make for easier support when we ask users what version they are using.
-            public static $_version = '3.3.10.1';
+            public static $_version = '3.3.10.7';
             public static $_dir; 
             public static $_url;
             public static $_upload_dir;
@@ -175,7 +175,8 @@
             public $typography_preview = array();
             public $args = array();
             public $filesystem  = null;
-
+            public $font_groups = array();
+            
             /**
              * Class Constructor. Defines the args for the theme options class
              *
@@ -303,11 +304,6 @@
                      */
                     do_action( 'redux/construct', $this );
 
-                    //$this->filesystem = new Redux_Filesystem( $this );
-
-                    //set redux upload folder
-                    //$this->set_redux_content();
-
                     // Set the default values
                     $this->_default_cleanup();
 
@@ -324,11 +320,6 @@
                     if ( true != Redux_Helpers::isTheme( __FILE__ ) || ( true == Redux_Helpers::isTheme( __FILE__ ) && !$this->args['disable_tracking'] ) ) {
                         $this->_tracking();
                     }
-
-                    // Set option with defaults
-                    //add_action( 'init', array( &$this, '_set_default_options' ), 101 );
-
-                    //logconsole('post', $_GET['page']);
 
                     //DOVY!!  HERE!!!
                     // Getting started page
@@ -364,10 +355,7 @@
                     }
 
                     // Admin Bar menu
-                    add_action( 'admin_bar_menu', array(
-                        $this,
-                        '_admin_bar_menu'
-                    ), $this->args['admin_bar_priority'] );
+                    add_action( 'admin_bar_menu', array( $this, '_admin_bar_menu' ), $this->args['admin_bar_priority'] );
 
                     // Register setting
                     add_action( 'admin_init', array( $this, '_register_settings' ) );
@@ -1619,8 +1607,8 @@
                         $protocol = ( ! empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443 ) ? "https:" : "http:";
 
                         //echo '<link rel="stylesheet" id="options-google-fonts" title="" href="'.$protocol.$typography->makeGoogleWebfontLink( $this->typography ).'&amp;v='.$version.'" type="text/css" media="all" />';
-                        wp_register_style( 'redux-google-fonts', $protocol . $typography->makeGoogleWebfontLink( $this->typography ), '', $version );
-                        wp_enqueue_style( 'redux-google-fonts' );
+                        wp_register_style( 'redux-google-fonts-' . $this->args['opt_name'], $protocol . $typography->makeGoogleWebfontLink( $this->typography ), '', $version );
+                        wp_enqueue_style( 'redux-google-fonts-' . $this->args['opt_name'] );
                     }
                 }
 
@@ -2547,7 +2535,7 @@
                          *
                          * @param  &array [ $this->options_defaults, $plugin_options]
                          */
-                        $plugin_options = apply_filters( "redux/validate/{$this->args['opt_name']}/defaults_section", $plugin_options );
+                        
                         foreach ( $this->sections[ $plugin_options['redux-section'] ]['fields'] as $field ) {
                             if ( isset( $this->options_defaults[ $field['id'] ] ) ) {
                                 $plugin_options[ $field['id'] ] = $this->options_defaults[ $field['id'] ];
@@ -2559,6 +2547,8 @@
                                 $compiler = true;
                             }
                         }
+                        
+                        $plugin_options = apply_filters( "redux/validate/{$this->args['opt_name']}/defaults_section", $plugin_options );
                     }
 
                     $this->transients['changed_values'] = array();
@@ -3653,9 +3643,9 @@
                          */
                         do_action( "redux/field/{$this->args['opt_name']}/fieldset/before/{$this->args['opt_name']}", $field, $value );
 
-                        if ( ! isset( $field['fields'] ) || empty( $field['fields'] ) ) {
+                        //if ( ! isset( $field['fields'] ) || empty( $field['fields'] ) ) {
                             echo '<fieldset id="' . $this->args['opt_name'] . '-' . $field['id'] . '" class="redux-field-container redux-field redux-field-init redux-container-' . $field['type'] . ' ' . $class_string . '" data-id="' . $field['id'] . '" ' . $data_string . ' data-type="' . $field['type'] . '">';
-                        }
+                        //}
 
                         echo $_render;
 
@@ -3665,9 +3655,9 @@
 
                         echo ( isset( $field['description'] ) && $field['type'] != "info" && $field['type'] !== "section" && ! empty( $field['description'] ) ) ? '<div class="description field-desc">' . $field['description'] . '</div>' : '';
 
-                        if ( ! isset( $field['fields'] ) || empty( $field['fields'] ) ) {
+                        //if ( ! isset( $field['fields'] ) || empty( $field['fields'] ) ) {
                             echo '</fieldset>';
-                        }
+                        //}
 
                         /**
                          * action 'redux-after-field-{opt_name}'

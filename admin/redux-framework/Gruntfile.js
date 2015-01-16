@@ -62,7 +62,7 @@ module.exports = function( grunt ) {
                         src: ['**/*.js', '!**/*.min.js', '!ace_editor/vendor/*.js', '!ace_editor/vendor/snippets/*.js', '!slider/vendor/nouislider/*.*', '!spinner/vendor/*.*'],
                         ext: '.min.js',
                         dest: 'ReduxCore/inc/fields'
-                    }]
+                    }]                    
                 },
                 core:{
                     files: {
@@ -82,7 +82,7 @@ module.exports = function( grunt ) {
                             'ReduxCore/assets/js/media/media.js'
                         ],
                     }
-
+                    
                 },
                 extensions: {
                     files: [{
@@ -310,7 +310,7 @@ module.exports = function( grunt ) {
                         ],
                         "ReduxCore/assets/css/vendor/elusive-icons/elusive-webfont.css":[
                             "ReduxCore/assets/css/vendor/elusive-icons/sass/elusive-webfont.scss"
-                        ],
+                        ],                        
                     }
                 },
 
@@ -384,13 +384,13 @@ module.exports = function( grunt ) {
     // Default task(s).
     grunt.registerTask(
         'default', [
-            'jshint',
-            'concat:core',
-            'uglify:core',
-            'concat:vendor',
-            'uglify:vendor',
+            'jshint', 
+            'concat:core', 
+            'uglify:core', 
+            'concat:vendor', 
+            'uglify:vendor', 
             'uglify:fields',
-            "sass:admin",
+            "sass:admin", 
             "sass:fields",
             "sass:vendor",
             'cssmin'
