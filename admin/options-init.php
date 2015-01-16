@@ -256,6 +256,48 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'default'   => '2'
                     ),
                     array(
+                        'id'        => 'skeleton_wp_back_to_top',
+                        'type'      => 'button_set',
+                        'title'     => __('Back To Top Button', 'redux-framework-demo'),
+                                                'subtitle'  => __('Toggle whether or not to enable a back to top button on your pages.', 'redux-framework-demo'),
+//                        'desc'      => __('', 'redux-framework-demo'),
+
+                        //Must provide key => value pairs for radio options
+                        'options'   => array(
+                            'true' => 'Yes',
+                            'false' => 'No'
+                        ),
+                        'default'   => 'true'
+                    ),
+                    array(
+                        'id'        => 'skeleton_wp_enable_lightbox',
+                        'type'      => 'button_set',
+                        'title'     => __('Auto Lightbox Image Links', 'redux-framework-demo'),
+                        'subtitle'  => __('This will allow all image links to open in a lightbox - including the images links within standard WordPress galleries.', 'redux-framework-demo'),
+//                        'desc'      => __('', 'redux-framework-demo'),
+
+                        //Must provide key => value pairs for radio options
+                        'options'   => array(
+                            'true' => 'Yes',
+                            'false' => 'No'
+                        ),
+                        'default'   => 'true'
+                    ),
+                    array(
+                        'id'        => 'skeleton_wp_enable_responsive',
+                        'type'      => 'button_set',
+                        'title'     => __('Enable Responsive Design', 'redux-framework-demo'),
+                        'subtitle'  => __('This adjusts the layout of your website depending on the screen size/device.', 'redux-framework-demo'),
+                        //                        'desc'      => __('', 'redux-framework-demo'),
+
+                        //Must provide key => value pairs for radio options
+                        'options'   => array(
+                            'true' => 'Yes',
+                            'false' => 'No'
+                        ),
+                        'default'   => 'true'
+                    ),
+                    array(
                         'id'        => 'skeleton_wp_tracking_code',
                         'type'      => 'textarea',
                         'required'  => array('layout', 'equals', '1'),
@@ -268,7 +310,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'id'        => 'skeleton_wp_custom_css',
                         'type'      => 'ace_editor',
                         'title'     => __('Custom CSS Code', 'redux-framework-demo'),
-                        'subtitle'  => __('Paste your CSS code here.', 'redux-framework-demo'),
+                        'subtitle'  => __('Write your custom CSS code here.', 'redux-framework-demo'),
                         'mode'      => 'css',
                         'theme'     => 'chrome',
                         'desc'      => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
@@ -278,7 +320,8 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'id'        => 'skeleton_wp_custom_js',
                         'type'      => 'ace_editor',
                         'title'     => __('JS Code', 'redux-framework-demo'),
-                        'subtitle'  => __('Paste your JS code here! It will show up right before the closing body tag.', 'redux-framework-demo'),
+                        'subtitle'  => __('Write your custom JS code here! It will show up right before the closing body
+                         tag.', 'redux-framework-demo'),
                         'mode'      => 'javascript',
                         'theme'     => 'chrome',
                         'desc'      => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
@@ -323,14 +366,14 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'output'    => array('body'),
                         'title'     => __('Body Background', 'redux-framework-demo'),
                         'subtitle'  => __('Body background with image, color, etc.', 'redux-framework-demo'),
-                        //'default'   => '#FFFFFF',
+                        'default'   => '#FFFFFF',
                     ),
                     array(
                         'id'        => 'opt-color-footer',
                         'type'      => 'color',
                         'title'     => __('Footer Background Color', 'redux-framework-demo'),
                         'subtitle'  => __('Pick a background color for the footer (default: #dd9933).', 'redux-framework-demo'),
-                        'default'   => '#dd9933',
+                        'default'   => '#FFFFFF',
                         'validate'  => 'color',
                     ),
                     array(
@@ -338,7 +381,7 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'type'      => 'color_rgba',
                         'title'     => __('Color RGBA - BETA', 'redux-framework-demo'),
                         'subtitle'  => __('Gives you the RGBA color. Still quite experimental. Use at your own risk.', 'redux-framework-demo'),
-                        'default'   => array('color' => '#dd9933', 'alpha' => '1.0'),
+                        'default'   => array('color' => '#FFFFFF', 'alpha' => '1.0'),
                         'output'    => array('body'),
                         'mode'      => 'background',
                         'validate'  => 'colorrgba',
@@ -360,10 +403,10 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         'title'     => __('Links Color Option', 'redux-framework-demo'),
                         'subtitle'  => __('Only color validation can be done on this field type', 'redux-framework-demo'),
                         'desc'      => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-                        //'regular'   => false, // Disable Regular Color
-                        //'hover'     => false, // Disable Hover Color
-                        //'active'    => false, // Disable Active Color
-                        //'visited'   => true,  // Enable Visited Color
+                        // 'regular'   => false, // Disable Regular Color
+                        // 'hover'     => false, // Disable Hover Color
+                        // 'active'    => false, // Disable Active Color
+                        // 'visited'   => true,  // Enable Visited Color
                         'default'   => array(
                             'regular'   => '#aaa',
                             'hover'     => '#bbb',
@@ -387,70 +430,18 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                         )
                     ),
                     array(
-                        'id'            => 'opt-spacing',
-                        'type'          => 'spacing',
-                        'output'        => array('.site-header'), // An array of CSS selectors to apply this font style to
-                        'mode'          => 'margin',    // absolute, padding, margin, defaults to padding
-                        'all'           => true,        // Have one field that applies to all
-                        //'top'           => false,     // Disable the top
-                        //'right'         => false,     // Disable the right
-                        //'bottom'        => false,     // Disable the bottom
-                        //'left'          => false,     // Disable the left
-                        //'units'         => 'em',      // You can specify a unit value. Possible: px, em, %
-                        //'units_extended'=> 'true',    // Allow users to select any type of unit
-                        //'display_units' => 'false',   // Set to false to hide the units if the units are specified
-                        'title'         => __('Padding/Margin Option', 'redux-framework-demo'),
-                        'subtitle'      => __('Allow your users to choose the spacing or margin they want.', 'redux-framework-demo'),
-                        'desc'          => __('You can enable or disable any piece of this field. Top, Right, Bottom, Left, or Units.', 'redux-framework-demo'),
-                        'default'       => array(
-                            'margin-top'    => '1px',
-                            'margin-right'  => '2px',
-                            'margin-bottom' => '3px',
-                            'margin-left'   => '4px'
-                        )
-                    ),
-                    array(
-                        'id'                => 'opt-dimensions',
-                        'type'              => 'dimensions',
-                        'units'             => 'em',    // You can specify a unit value. Possible: px, em, %
-                        'units_extended'    => 'true',  // Allow users to select any type of unit
-                        'title'             => __('Dimensions (Width/Height) Option', 'redux-framework-demo'),
-                        'subtitle'          => __('Allow your users to choose width, height, and/or unit.', 'redux-framework-demo'),
-                        'desc'              => __('You can enable or disable any piece of this field. Width, Height, or Units.', 'redux-framework-demo'),
-                        'default'           => array(
-                            'width'     => 200,
-                            'height'    => 100,
-                        )
-                    ),
-                    array(
-                        'id'        => 'opt-typography-body',
+                        'id'        => 'skeleton_wp_body_typography',
                         'type'      => 'typography',
                         'title'     => __('Body Font', 'redux-framework-demo'),
                         'subtitle'  => __('Specify the body font properties.', 'redux-framework-demo'),
                         'google'    => true,
                         'default'   => array(
-                            'color'         => '#dd9933',
+                            'color'         => '#000000',
                             'font-size'     => '30px',
-                            'font-family'   => 'Arial,Helvetica,sans-serif',
+                            'font-family'   => 'Arial, Helvetica, sans-serif',
                             'font-weight'   => 'Normal',
                         ),
-                    ),
-                    array(
-                        'id'        => 'opt-custom-css',
-                        'type'      => 'textarea',
-                        'title'     => __('Custom CSS', 'redux-framework-demo'),
-                        'subtitle'  => __('Quickly add some CSS to your theme by adding it to this block.', 'redux-framework-demo'),
-                        'desc'      => __('This field is even CSS validated!', 'redux-framework-demo'),
-                        'validate'  => 'css',
-                    ),
-                    array(
-                        'id'        => 'opt-custom-html',
-                        'type'      => 'textarea',
-                        'title'     => __('Custom HTML', 'redux-framework-demo'),
-                        'subtitle'  => __('Just like a text box widget.', 'redux-framework-demo'),
-                        'desc'      => __('This field is even HTML validated!', 'redux-framework-demo'),
-                        'validate'  => 'html',
-                    ),
+                    )
                 )
             );
 
