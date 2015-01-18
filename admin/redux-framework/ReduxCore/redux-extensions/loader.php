@@ -3,7 +3,7 @@
 // Replace {$redux_opt_name} with your opt_name.
 // Also be sure to change this function name!
 
-if(!function_exists('redux_register_custom_extension_loader')) :
+if(!function_exists( 'redux_register_instagram_gallery' )) :
     function redux_register_custom_extension_loader($ReduxFramework) {
         $path = dirname( __FILE__ ) . '/extensions/';
         $folders = scandir( $path, 1 );        
@@ -24,6 +24,6 @@ if(!function_exists('redux_register_custom_extension_loader')) :
         }
     }
     // Modify {$redux_opt_name} to match your opt_name
-    add_action("redux/extensions/{$redux_opt_name}/before", 'redux_register_custom_extension_loader', 0);
+    add_action("redux/extensions/{$redux_opt_name}/before", 'redux_register_instagram_gallery', 0);
 endif;
 

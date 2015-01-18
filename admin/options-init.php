@@ -737,6 +737,20 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
             );
 
             $this->sections[] = array(
+                'icon'      => 'el-icon-website',
+                'title'     => __('Social Media', 'redux-framework-demo'),
+                'fields'    => array(
+                    array(
+                        "id" => "skeleton_wp_social_instagram",
+                        "type" => "text",
+                        "title" => __("Instagram URL", "redux-framework-demo"),
+                        "subtitle" => __("Please enter in your Instagram URL.", "redux-framework-demo"),
+                        "validate" => "url"
+                    )
+                )
+            );
+
+            $this->sections[] = array(
                 'icon'      => 'el-icon-list-alt',
                 'title'     => __('Select Fields', 'redux-framework-demo'),
                 'desc'      => __('<p class="description">This is the Description. Again HTML is allowed</p>', 'redux-framework-demo'),
