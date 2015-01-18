@@ -239,6 +239,14 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                 'icon'      => 'el-icon-cogs',
                 'title'     => __('General Settings', 'redux-framework-demo'),
                 'fields'    => array(
+	                array(
+		                'id'       => 'skeleton_wp_favicon',
+		                'type'     => 'media',
+		                'title'    => __( 'Favicon Uploader', 'redux-framework-demo' ),
+		                //'desc'     => __( 'This represents the minimalistic view. It does not have the preview box
+		                //or the display URL in an input box. ', 'redux-framework-demo' ),
+		                'subtitle' => __( 'Upload any media using the WordPress native uploader', 'redux-framework-demo' ),
+	                ),
                     array(
                         'id'        => 'opt-layout',
                         'type'      => 'image_select',
