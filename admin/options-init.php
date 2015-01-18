@@ -741,7 +741,21 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
                 'title'     => __('Social Media', 'redux-framework-demo'),
                 'fields'    => array(
                     array(
-                        "id" => "skeleton_wp_social_instagram",
+                        "id" => "skeleton_wp_social_instagram", // follow this naming convention: skeleton_wp_social_
+                        "type" => "text",
+                        "title" => __("Instagram URL", "redux-framework-demo"),
+                        "subtitle" => __("Please enter in your Instagram URL.", "redux-framework-demo"),
+                        "validate" => "url"
+                    )
+                )
+            );
+
+            $this->sections[] = array(
+                'icon'      => 'el-icon-website',
+                'title'     => __('Galleries', 'redux-framework-demo'),
+                'fields'    => array(
+                    array(
+                        "id" => "skeleton_wp_gallery_instagram",
                         "type" => "text",
                         "title" => __("Instagram URL", "redux-framework-demo"),
                         "subtitle" => __("Please enter in your Instagram URL.", "redux-framework-demo"),

@@ -80,6 +80,15 @@ function skeleton_wp_sc_site_tagline() {
 	return get_bloginfo("description");
 }
 
+// TODO: Add date shortcode and allow user to enter in custom format if they wish
+function skeleton_wp_sc_date($atts) {
+	return $atts;
+}
+
+function skeleton_wp_sc_instagram_gallery($atts) {
+	return null;
+}
+
 add_shortcode("wp-url", "skeleton_wp_sc_wp_url");
 add_shortcode("theme-url", "skeleton_wp_sc_theme_url");
 add_shortcode("login-url", "skeleton_wp_sc_login_url");
@@ -87,3 +96,5 @@ add_shortcode("logout-url", "skeleton_wp_sc_logout_url");
 add_shortcode("site-tagline", "skeleton_wp_sc_site_tagline");
 add_shortcode("current-year", "skeleton_wp_sc_current_year");
 add_shortcode("site-title", "skeleton_wp_sc_site_title");
+add_shortcode("instagram-gallery", "skeleton_wp_sc_site_title");
+add_shortcode("insta-gallery", "skeleton_wp_sc_site_title");
