@@ -12,6 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 <?php wp_head(); ?>
 <!-- TEMPORARY -->
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,100' rel='stylesheet' type='text/css'>
