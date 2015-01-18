@@ -186,9 +186,9 @@ function skeleton_wp_get_footer_regions() {
 
 }
 
-function blog_favicon() { ?>
-	<link rel="shortcut icon" href="<?php echo bloginfo('stylesheet_directory') ?>/images/favicon.png" >
-<?php }
+function blog_favicon() {
+	// echo '<link rel="shortcut icon" href="' . // do something here . '">';
+}
 
 add_action('wp_head', 'blog_favicon');
 add_action('widgets_init', 'skeleton_wp_widgets_init');
