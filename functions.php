@@ -186,11 +186,11 @@ function skeleton_wp_get_footer_regions() {
 
 }
 
-function blog_favicon() {
-	// echo '<link rel="shortcut icon" href="' . // do something here . '">';
+function skeleton_wp_blog_favicon() {
+	echo '<link rel="shortcut icon" href="' . skeleton_wp_get_option("skeleton_wp_favicon") . '">';
 }
 
-add_action('wp_head', 'blog_favicon');
+add_action('wp_head', 'skeleton_wp_blog_favicon');
 add_action('widgets_init', 'skeleton_wp_widgets_init');
 add_action('widgets_init', 'skeleton_wp_footer_wigets_init');
 add_action('after_setup_theme', 'skeleton_wp_setup');
