@@ -27,3 +27,22 @@ function skeleton_wp_count_active_sidebars($regions, $id = "footer-region") {
 
 	return $active;
 }
+
+
+/**
+ * @param string $image
+ * @return mixed
+ * @author Evan Tam
+ * @version 1.0
+ */
+
+function skeleton_wp_convert_image($image) {
+	$editor = wp_get_image_editor($image);
+	if(!is_wp_error($editor)) {
+		$editor->resize(16,16,true);
+		$editor->save(null, 'image/x-icon'); //find another way to convert file formats
+		var_dump($editor);
+	}
+
+	return $editor;
+}
