@@ -1,5 +1,3 @@
 *.css.map
 .sass-cache
 *.swp
-admin/redux-extensions/*
-admin/redux-extensions/extensions
