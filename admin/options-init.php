@@ -243,12 +243,13 @@ if (!class_exists('skeleton_wp_Redux_Framework_config')) {
 		                'id'       => 'skeleton_wp_favicon',
 		                'type'     => 'media',
 		                'title'    => __( 'Favicon Uploader', 'redux-framework-demo' ),
-		                //'desc'     => __( 'This represents the minimalistic view. It does not have the preview box
-		                //or the display URL in an input box. ', 'redux-framework-demo' ),
+		                'height'   => "16",
+                        'width'   => "16",
+                        "library_filter" => array("jpg", "jpge", "png", "gif", "bmp", "tif", "tiff"),
 		                'subtitle' => __( 'Upload any media using the WordPress native uploader', 'redux-framework-demo' ),
 	                ),
                     array(
-                        'id'        => 'opt-layout',
+                        'id'        => 'skeleton_wp_layout_select',
                         'type'      => 'image_select',
                         'compiler'  => true,
                         'title'     => __('Main Layout', 'redux-framework-demo'),

@@ -178,7 +178,7 @@ function skeleton_wp_get_footer_regions() {
 			array_push($classes, "omega");
 		}
 
-		// TODO: See if there's a more optimal to store class selectors. Is implode() too slow?
+		// TODO: See if there's a more optimal way to store class selectors. Is implode() too slow?
 		print '<div class="' . implode(" ", $classes) . '">';
 		dynamic_sidebar("footer-region-" . $active_regions[$i]);
 		print '</div>';
@@ -188,7 +188,12 @@ function skeleton_wp_get_footer_regions() {
 
 function skeleton_wp_blog_favicon() {
 	$favicon = skeleton_wp_get_option("skeleton_wp_favicon");
-	print '<link rel="shortcut icon" href="' . $favicon["url"] . '">';
+	global $skeleton_wp;
+//	$image = wp_get_image_editor($favicon["url"]);
+	print "<pre>";
+	var_dump($skeleton_wp["skeleton_wp_favicon"]);
+	print "</pre>";
+	print '<link rel="shortcut icon" href="' . $favicon["url"] . '">' . "\n";
 }
 
 add_action('wp_head', 'skeleton_wp_blog_favicon');
@@ -197,3 +202,4 @@ add_action('widgets_init', 'skeleton_wp_footer_wigets_init');
 add_action('after_setup_theme', 'skeleton_wp_setup');
 add_action('wp_enqueue_scripts', 'skeleton_wp_scripts');
 add_action("wp_enqueue_style", "skeleton_wp_styles");
+remove_action('wp_head', 'wp_generator'); // removes WordPress version -- it's good for security
